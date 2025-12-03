@@ -18,6 +18,9 @@ const router = Router();
    - Handles duplicate email errors
 */
 router.post("/signup", async (req, res) => {
+  // Debug log
+  console.log("Signup route hit:", req.body);
+
   const { username, email, password } = req.body;
 
   if (!username || !email || !password) {
