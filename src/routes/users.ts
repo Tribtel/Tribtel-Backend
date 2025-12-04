@@ -42,12 +42,13 @@ router.post("/signup", async (req, res) => {
       user: result.rows[0],
     });
   } catch (err: any) {
+    console.error("Signup error:", err);
     if (err.code === "23505") {
       // Postgres unique violation (duplicate email)
       return res.status(400).json({ error: "Email already exists" });
     }
     console.error(err);
-    res.status(500).json({ error: "Server error" });
+    res.status(500).json({ error: "Server error", details: err.message, code: err.code });
   }
 });
 
