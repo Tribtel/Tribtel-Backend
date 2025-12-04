@@ -37,8 +37,8 @@ app.get("/api/test-db", async (_req, res) => {
 });
 
 // setup server to listen on specified port
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
+const PORT = parseInt(process.env.PORT ?? "4000", 10);
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
