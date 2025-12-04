@@ -17,8 +17,8 @@ import bookingsRouter from "./routes/bookings";
 
 const app = express();
 
-app.use(cors({ origin: true, credentials: true }));
-app.use(express.json());
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(express.json());//middleware to parse JSON bodies
 
 // Health check
 app.get("/api/health", (_req, res) => {
